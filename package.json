@@ -1,7 +1,7 @@
 {
-  "name": "wp-babel-react",
+  "name": "react-drag-n-drop",
   "version": "1.0.0",
-  "description": "webpack babel react starter",
+  "description": "drag-drop-n-resize with react",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,9 +17,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/imagineLife/wp-babel-react/issues"
+    "url": "https://github.com/imagineLife/reactDragNDrop/issues"
   },
-  "homepage": "https://github.com/imagineLife/wp-babel-react#readme",
+  "homepage": "https://github.com/imagineLife/reactDragNDrop#readme",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
