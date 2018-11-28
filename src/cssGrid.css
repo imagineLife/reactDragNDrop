@@ -136,5 +136,9 @@ mid-screens-size resizing
     grid-column-end: span 1;
   }
 
+  .gr8-12{
+    grid-column-end: span 12;
+  }
+
 
 }
