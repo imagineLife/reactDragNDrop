@@ -3,8 +3,8 @@ import './Box.css';
 import BoxContent from '../BoxContent'
 
 export default function Box(props){
-	console.log('box Props')
-	console.log(props)
+	// console.log('box Props')
+	// console.log(props)
 	let thisClass = `${props.classProp} gr-2-${props.colSize}`
 	if(props.boxFilled){
 		return(
@@ -13,12 +13,13 @@ export default function Box(props){
 				className={thisClass}
 			>				
 
-			<BoxContent 
-				filledID={props.filledID}
-				filledClass={props.filledClass}
-				dragStart={props.filledStart}
-				filledend={props.filledEnd}
-			/>
+				<BoxContent 
+					filledID={props.filledID}
+					filledClass={props.filledClass}
+					dragStart={props.filledStart}
+					filledend={props.filledEnd}
+				/>
+			
 			</div>
 		)
 	}else{
