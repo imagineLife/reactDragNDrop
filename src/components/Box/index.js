@@ -3,6 +3,8 @@ import './Box.css';
 import BoxContent from '../BoxContent'
 
 export default function Box(props){
+	console.log('box Props')
+	console.log(props)
 	let thisClass = `${props.classProp} gr-2-${props.colSize}`
 	if(props.boxFilled){
 		return(
