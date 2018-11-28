@@ -241,13 +241,13 @@ class ThisApp extends React.Component {
 		  return ( <div className="row twelveGrid" key={ind} >{rowCols}</div> )
 		});
 
-        return <div>			
+        return <React.Fragment>
             <Header/>
-            <div className="container row twelveGrid">
-                <h1 style={{color: 'white'}} className='gr8-12'> Hello {this.props.name} </h1>
+            <div className="container">
+                <h1 style={{color: 'white'}} className='gr-12'> Hello {this.props.name} </h1>
+                {LayoutDesign}
             </div>
-            {LayoutDesign}
-        </div>
+        </React.Fragment>
     }
 }
 
