@@ -13,42 +13,42 @@ class ThisApp extends React.Component {
 				{
 					id:1,
 					filled: true,
-					cls: 'empty',
+					cls: 'draggableBox empty',
 					colSize: 3
 				},
 				{
 					id:2,
-					cls: 'empty',
+					cls: 'draggableBox empty',
 					colSize: 3				
 				},
 				{
 					id:3,
-					cls: 'empty',
+					cls: 'draggableBox empty',
 					colSize: 3				
 				},
 				{
 					id:4,
-					cls: 'empty',
+					cls: 'draggableBox empty',
 					colSize: 3
 				},
 				{
 					id:5,
-					cls: 'empty',
+					cls: 'draggableBox empty',
 					colSize: 3					
 				},
 				{
 					id:6,
-					cls: 'empty',
+					cls: 'draggableBox empty',
 					colSize: 3					
 				},
 				{
 					id:7,
-					cls: 'empty',
+					cls: 'draggableBox empty',
 					colSize: 3					
 				},
 				{
 					id:8,
-					cls: 'empty',
+					cls: 'draggableBox empty',
 					colSize: 3					
 				},
 			],
@@ -81,7 +81,7 @@ class ThisApp extends React.Component {
 			//find this box in current state
 			const thisBoxInState = curState.boxes.find((b) => b.id === thisDivID )
 			//set the class name of this box
-			thisBoxInState.cls = 'empty hovered'
+			thisBoxInState.cls = 'draggableBox empty hovered'
 			//return the initial state
 			return ({ boxes: Object.assign(curState.boxes,thisBoxInState) })
 		})
@@ -108,7 +108,7 @@ class ThisApp extends React.Component {
 			//find this box in current state
 			const thisBoxInState = curState.boxes.find((b) => b.id == thisDivID )
 			//set the class name of this box
-			thisBoxInState.cls = 'empty'
+			thisBoxInState.cls = 'draggableBox empty'
 			//return the initial state
 			return ({ boxes: Object.assign(curState.boxes,thisBoxInState) })
 		})
@@ -129,14 +129,14 @@ class ThisApp extends React.Component {
 							return({
 								id: curStateBox.id,
 								filled: false,
-								cls: 'empty',
+								cls: curStateBox.cls,
 								colSize: curStateBox.colSize
 							})
 						}else{
 							return({
 								id: thisDivID,
 								filled: true,
-								cls: 'empty',
+								cls: 'draggableBox empty',
 								colSize: curStateBox.colSize
 							})
 						}
