@@ -125,7 +125,7 @@ mid-screens-size resizing
   
   /* 6 columns, 6/12 in % */
   .gr-12 {
-    grid-column-end: span 6;
+    grid-column-end: span 12;
   }
 
 }
