@@ -223,23 +223,6 @@ class ThisApp extends React.Component {
 
 		})
 
-    	// let theseBoxes = this.state.boxes.map((b) => {
-    	// 	return <Box 
-    	// 		dragEnt={this.dragEntered} 
-    	// 		dragLft={this.dragLeft} 
-    	// 		dragOv={this.draggedOver} 
-    	// 		dragDr={this.dragDropped} 
-    	// 		key={b.id}
-    	// 		boxID={b.id} 
-    	// 		boxFilled={b.filled}
-    	// 		classProp={b.cls}
-    	// 		filledID={this.state.filledID}
-    	// 		filledClass={this.state.filledClass}
-    	// 		filledStart={this.dragStart}
-    	// 		filledEnd={this.dragEnded}
-    	// 	/>
-    	// })
-
     	let LayoutDesign = allRows.map((row, ind) => {  
 		  const rowCols = row.map(comp => comp)
 		  return ( <div className="row twelveGrid" key={ind} >{rowCols}</div> )
