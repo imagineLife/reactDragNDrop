@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Header from './components/Header'
 import Box from './components/Box'
+import './main.css'
 
 class ThisApp extends React.Component {
 	constructor(props){
@@ -12,35 +13,43 @@ class ThisApp extends React.Component {
 				{
 					id:1,
 					filled: true,
-					cls: 'empty gr8-2'
+					cls: 'empty',
+					colSize: 3
 				},
 				{
 					id:2,
-					cls: 'empty gr8-2'				
+					cls: 'empty',
+					colSize: 3				
 				},
 				{
 					id:3,
-					cls: 'empty gr8-2'				
+					cls: 'empty',
+					colSize: 3				
 				},
 				{
 					id:4,
-					cls: 'empty gr8-2'
+					cls: 'empty',
+					colSize: 3
 				},
 				{
 					id:5,
-					cls: 'empty gr8-2'					
+					cls: 'empty',
+					colSize: 3					
 				},
 				{
 					id:6,
-					cls: 'empty gr8-2'					
+					cls: 'empty',
+					colSize: 3					
 				},
 				{
 					id:7,
-					cls: 'empty gr8-2'					
+					cls: 'empty',
+					colSize: 3					
 				},
 				{
 					id:8,
-					cls: 'empty gr8-2'					
+					cls: 'empty',
+					colSize: 3					
 				},
 			],
 			filledID : 'thisID',
@@ -160,12 +169,15 @@ class ThisApp extends React.Component {
 	updateDimensions(){
         this.setState({windowWidth: window.innerWidth});
     }
+
     componentWillMount(){
         this.updateDimensions();
     }
+
     componentDidMount(){
         window.addEventListener("resize", this.updateDimensions);
     }
+
     componentWillUnmount(){
         window.removeEventListener("resize", this.updateDimensions);
     }
@@ -174,8 +186,14 @@ class ThisApp extends React.Component {
     	console.log('rendering STATE!')
     	console.log(this.state)
 
-    	let theseBoxes = this.state.boxes.map((b) => {
-    		return <Box 
+    	//adding row/col design
+		let curColumnCount = 0;
+		let currentRow = [];
+		let allRows = [];
+
+		this.state.boxes.forEach((b,ind) => {
+			curColumnCount += b.colSize;
+			currentRow.push(<Box 
     			dragEnt={this.dragEntered} 
     			dragLft={this.dragLeft} 
     			dragOv={this.draggedOver} 
@@ -188,14 +206,47 @@ class ThisApp extends React.Component {
     			filledClass={this.state.filledClass}
     			filledStart={this.dragStart}
     			filledEnd={this.dragEnded}
-    		/>
-    	})
+    			colSize={b.colSize}
+    		/>)
+		
+			//adds curRow to allRows once curRow has total col-widths @ 12
+		    // if final row has less than 12 width...
+		    if( curColumnCount % 12 === 0 || (ind === this.state.boxes.length - 1 && currentRow.length) ) {
+		      allRows.push(currentRow)
+		        //reset curRow
+		      currentRow = []
+		    };
+
+		})
+
+    	// let theseBoxes = this.state.boxes.map((b) => {
+    	// 	return <Box 
+    	// 		dragEnt={this.dragEntered} 
+    	// 		dragLft={this.dragLeft} 
+    	// 		dragOv={this.draggedOver} 
+    	// 		dragDr={this.dragDropped} 
+    	// 		key={b.id}
+    	// 		boxID={b.id} 
+    	// 		boxFilled={b.filled}
+    	// 		classProp={b.cls}
+    	// 		filledID={this.state.filledID}
+    	// 		filledClass={this.state.filledClass}
+    	// 		filledStart={this.dragStart}
+    	// 		filledEnd={this.dragEnded}
+    	// 	/>
+    	// })
+
+    	let LayoutDesign = allRows.map((row, ind) => {  
+		  const rowCols = row.map(comp => comp)
+		  return ( <div className="row twelveGrid" key={ind} >{rowCols}</div> )
+		});
+
         return <div>			
             <Header/>
-            <div className="container eightGrid">
-                <h1 style={{color: 'white'}}> Hello {this.props.name} </h1>
-                {theseBoxes}
+            <div className="container row twelveGrid">
+                <h1 style={{color: 'white'}} className='gr8-12'> Hello {this.props.name} </h1>
             </div>
+            {LayoutDesign}
         </div>
     }
 }
