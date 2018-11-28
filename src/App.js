@@ -129,13 +129,15 @@ class ThisApp extends React.Component {
 							return({
 								id: curStateBox.id,
 								filled: false,
-								cls: 'empty'
+								cls: 'empty',
+								colSize: curStateBox.colSize
 							})
 						}else{
 							return({
 								id: thisDivID,
 								filled: true,
-								cls: 'empty'
+								cls: 'empty',
+								colSize: curStateBox.colSize
 							})
 						}
 					}),
@@ -160,7 +162,9 @@ class ThisApp extends React.Component {
 		//update state...
 		this.setState((curState) => {
 			//return an updated state
-			return ({ filledClass: curState.filledClass += ' hold' })
+			return ({ 
+				filledClass: curState.filledClass += ' hold' 
+			})
 		})
 
 	  	setTimeout(() => this.setToInvisible(), 0);
@@ -183,8 +187,8 @@ class ThisApp extends React.Component {
     }
 
     render() {
-    	console.log('rendering STATE!')
-    	console.log(this.state)
+    	console.log('rendering APP STATE.boxes!')
+    	console.log(this.state.boxes)
 
     	//adding row/col design
 		let curColumnCount = 0;
