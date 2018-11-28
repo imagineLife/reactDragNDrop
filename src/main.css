@@ -3,6 +3,9 @@ body{
 	background: rgb(28,28,28);
 }
 
+.row{
+  height: 250px;
+}
 
 .fill {
   background-image: url('https://source.unsplash.com/random/150x150');

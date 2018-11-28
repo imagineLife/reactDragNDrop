@@ -101,6 +101,8 @@ mid-screens-size resizing
 /* Non-mobile, grid */
 @media only screen and (min-width: 640px) {
   
+  /*12-column setup*/
+
   /* 2 columns, 2/12 in % */  
   .gr-2, .gr-2-2{
     grid-column-end: span 2;
@@ -120,25 +122,10 @@ mid-screens-size resizing
   .gr-6 {
     grid-column-end: span 6;
   }
-
-  /*
-    8-column setup
-  */
-  .gr8-4{
-    grid-column-end: span 4;
+  
+  /* 6 columns, 6/12 in % */
+  .gr-12 {
+    grid-column-end: span 6;
   }
-
-  .gr8-2{
-    grid-column-end: span 2; 
-  }
-
-  .gr8-1, .gr8-1-2{
-    grid-column-end: span 1;
-  }
-
-  .gr8-12{
-    grid-column-end: span 12;
-  }
-
 
 }
