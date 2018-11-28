@@ -4,7 +4,8 @@ body{
 }
 
 .row{
-  height: 250px;
+  /*height: 250px;*/
+  /*exchanged for box-declared height*/
 }
 
 .fill {
@@ -21,12 +22,16 @@ body{
   border: solid 5px #ccc;
 }
 
+.draggableBox{
+  height: 250px;
+}
+
 .empty {
   display: inline-block;
-  height: 160px;
-  width: 160px;
-  margin: 10px;
-  border: solid 3px salmon;
+  /* height: 160px; */
+  width: 95%;
+  margin: 3px;
+  border: solid 2px salmon;
   background: white;
 }
 
